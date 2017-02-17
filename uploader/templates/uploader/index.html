@@ -1,9 +1,15 @@
 {% extends 'uploader/base.html' %}
 
+{% load static %}
+
 {% block content %}
 <h1>Uploader</h1>
-<form>
-  <input type="file">
-  <input type="submit">
-</form>
+<form action="/" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="file" name="srt_file">
+    <input type="submit">
+  </form>
+  <p id="junk"><p>
+  <script src="{% static 'output.js' %}"></script>
+
 {% endblock %}
